@@ -1,16 +1,17 @@
 # System
 
-import imp
+import importlib.util
 import os
 
 interface_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "interface.py")
 
-if os.path.exists(plankcore_path):
-    plankcore = imp.load_source('interface', interface_path)
+if os.path.exists(interface_path):
+    spec = importlib.util.spec_from_file_location("interface", interface_path)
+    interface = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(interface)
+    Cli = plankcore.Cli
 else:
     print("interface.py not found!")
-    
-Cli = interface.Cli
 
 class Core:
     def Resetsystem():

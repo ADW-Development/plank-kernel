@@ -1,5 +1,5 @@
 # the system kernel.
 
-from .plankcore import Bootmgr
+from plankcore import Bootmgr
 
 Bootmgr.Boot()

@@ -3,15 +3,18 @@
 import importlib.util
 import os
 
-interface_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "interface.py")
+def load_interface():
+    global Cli
 
-if os.path.exists(interface_path):
-    spec = importlib.util.spec_from_file_location("interface", interface_path)
-    interface = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(interface)
-    Cli = plankcore.Cli
-else:
-    print("interface.py not found!")
+    interface_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "interface.py")
+
+    if os.path.exists(interface_path):
+        spec = importlib.util.spec_from_file_location("interface", interface_path)
+        interface = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(interface)
+        Cli = interface.Cli
+    else:
+        print("interface.py not found!")
 
 class Core:
     def Resetsystem():
@@ -20,7 +23,7 @@ class Core:
 
 class Utils:
     def Panic(PanicCode):        
-        Critical.Outp(f"[ SYS PANIC - {PanicCode}]")
+        Critical.Outp(f"[ SYS PANIC - {PanicCode} ]")
         Critical.Outp("Please insure system is installed correctly.")
     
     def Test():
@@ -33,6 +36,7 @@ class Bootmgr:
         Bootmgr_Test_Resp = 1 # Of this is working properly, it will set the request to 1, else it will remain 0.
     
     def Boot():
+        load_interface()
         Decoration.Banner()
         Core.Resetsystem()
         Critical.Outp("Welcome to Plank kernel.")

@@ -38,6 +38,9 @@ class Cli:
         if Command == "Force Panic":
             Commands.Force_Panic()
 
+        if Command == "Program":
+            Commands.Run_Program()
+
 class Commands:
     def Help():
         load_core()
@@ -56,3 +59,9 @@ class Commands:
         Utils.Panic("User_Forced_Panic")
         time.sleep(3)
         sys.exit()
+
+    def Run_Program():
+        Program = input("Program name: ")
+        current_dir = os.getcwd()
+        interpreter_path = os.path.join(current_dir, "appdat", "sep", "interpreter.py")
+        os.system(f"python {interpreter_path} \"{Program}\"")        

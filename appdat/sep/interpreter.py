@@ -1,8 +1,7 @@
-# Literally can only compile a string for now. I still learned stuff though :D
-
 import re
+import sys
 
-program = "program.psep"
+Program = sys.argv[1]
 lines = []
 
 with open(program, "r") as file:

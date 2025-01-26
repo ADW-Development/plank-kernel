@@ -11,6 +11,6 @@ if os.path.exists(plankcore_path):
     spec.loader.exec_module(plankcore)
     Bootmgr = plankcore.Bootmgr
 else:
-    print("plankcore.py not found!")
+    print("Critical system files not found! Please reinstall.")
 
 Bootmgr.Boot()

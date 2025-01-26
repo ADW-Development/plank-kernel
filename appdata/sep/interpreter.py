@@ -1,8 +1,9 @@
 import re
+import os
 import sys
 
 InpProgram = sys.argv[1]
-program = os.path.abspath(os.path.join("..", "programs", f"{InpProgram}.psep"))
+program = os.path.abspath(os.path.join("programs", f"{InpProgram}.psep"))
 lines = []
 
 with open(program, "r") as file:

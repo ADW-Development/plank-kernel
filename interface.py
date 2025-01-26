@@ -29,16 +29,16 @@ class Cli:
         Command = input("Plank$> ")
     
     def Processcommand():
-        if Command == "Help":
+        if Command == "help":
             Commands.Help()
         
-        if Command == "Info":
+        if Command == "info":
             Commands.Info()
         
-        if Command == "Force Panic":
+        if Command == "force panic":
             Commands.Force_Panic()
 
-        if Command == "Program":
+        if Command == "program":
             Commands.Run_Program()
 
 class Commands:
@@ -47,12 +47,13 @@ class Commands:
         Critical.Outp("Help")
         Critical.Outp("Info")
         Critical.Outp("Force Panic")
+        Critical.Outp("Program")
     
     def Info():
         load_core()
         Critical.Outp("System: Plank kernel")
         Critical.Outp("Software Manufacturer: ADW Systems")
-        Critical.Outp("Version: Beta 0.1.2")
+        Critical.Outp("Version: Beta 0.1.5")
     
     def Force_Panic():
         load_core()

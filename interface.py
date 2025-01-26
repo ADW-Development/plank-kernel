@@ -64,4 +64,4 @@ class Commands:
         InpProgram = input("Program name: ")
         current_dir = os.getcwd()
         interpreter_path = os.path.join(current_dir, "appdat", "sep", "interpreter.py")
-        os.system(f"python {interpreter_path} \"{InpProgram}\"")        
+        os.system(f"python {interpreter_path} \"{InpProgram}\"")

@@ -33,7 +33,7 @@ class Utils:
 class Bootmgr:
     def Test():
         global Bootmgr_Test_Resp
-        Bootmgr_Test_Resp = 1 # Of this is working properly, it will set the request to 1, else it will remain 0.
+        Bootmgr_Test_Resp = 1 # If this is working properly, it will set the request to 1, else it will remain 0.
     
     def Boot():
         load_interface()
